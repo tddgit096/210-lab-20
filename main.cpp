@@ -21,9 +21,9 @@ public:
     // constructors
     Chair() {
         prices = new double[SIZE];
-        legs = 3+rand()%1; //default constructor to randomly select 3 or 4 legs
+        legs = 3+rand()%2; //default constructor to randomly select 3 or 4 legs
         for (int i = 0; i < SIZE; i++)
-            prices[i] = (rand()%MAX-MIN+1)/(double)100; //randomly select prices down to the cent from between $100.00 to $999.99
+            prices[i] = (rand()%(MAX-MIN+1))/(double)100; //randomly select prices down to the cent from between $100.00 to $999.99
     }
     Chair(int l, double priceArg[SIZE]) { //parameter constructor to have two parameters: no. of legs and an array of 3 doubles (prices)
         prices = new double[SIZE];
@@ -75,13 +75,8 @@ int main() {
     livingChair = nullptr;
 
     //creating dynamic array of chair objects
-    Chair *collection = new Chair[SIZE];
-    collection[0].setLegs(4);
-    collection[0].setPrices(441.41, 552.52, 663.63);
-    collection[1].setLegs(4);
-    collection[1].setPrices(484.84, 959.59, 868.68);
-    collection[2].setLegs(4);
-    collection[2].setPrices(626.26, 515.15, 757.57);
+    cout<<"Randomized via default constructor:\n";
+    Chair *collection = new Chair[SIZE]; //calls the default constructor
     for (int i = 0; i < SIZE; i++)
         collection[i].print();
     
