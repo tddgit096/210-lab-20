@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iomanip>
 #include <random>
+#include <time.h>
 
 using namespace std;
 const int SIZE = 3;
@@ -57,7 +58,7 @@ public:
 };
 
 int main() {
-    //srand to seed random
+    srand(time(NULL)); //seed the rand values
     cout << fixed << setprecision(2);
 
     //creating pointer to first chair object
@@ -66,8 +67,8 @@ int main() {
     chairPtr->setPrices(121.21, 232.32, 414.14);
     chairPtr->print();
 
-    //creating dynamic chair object with constructor
-    Chair *livingChair = new Chair(3);
+    //creating dynamic chair object with default constructor
+    Chair *livingChair = new Chair();
     livingChair->setPrices(525.25, 434.34, 252.52);
     livingChair->print();
     delete livingChair;
