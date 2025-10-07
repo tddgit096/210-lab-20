@@ -8,10 +8,6 @@
 using namespace std;
 const int SIZE = 3;
 const int MIN = 10000, MAX = 99999;
-/*
-instructions:
-in the third code block at line 67, amend this such that the default constructors are used to populate these objects
-*/
 
 class Chair {
 private:
