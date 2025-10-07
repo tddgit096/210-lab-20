@@ -2,15 +2,13 @@
 
 #include <iostream>
 #include <iomanip>
+#include <random>
 
 using namespace std;
 const int SIZE = 3;
-
+const int MIN = 10000, MAX = 99999;
 /*
 instructions:
-change default constructor to randomly select 3 or 4 legs.
-randomly select prices down to the cent from between $100.00 to $999.99
-change the parameter constructor to have two parameters: no. of legs and an array of 3 doubles (prices)
 in the third code block at line 67, amend this such that the default constructors are used to populate these objects
 */
 
@@ -22,15 +20,15 @@ public:
     // constructors
     Chair() {
         prices = new double[SIZE];
-        legs = 0;
+        legs = 3+rand()%1; //default constructor to randomly select 3 or 4 legs
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i] = (rand()%MAX-MIN+1)/(double)100; //randomly select prices down to the cent from between $100.00 to $999.99
     }
-    Chair(int l) {
+    Chair(int l, double priceArg[SIZE]) { //parameter constructor to have two parameters: no. of legs and an array of 3 doubles (prices)
         prices = new double[SIZE];
         legs = l;
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i] = priceArg[i];
     }
 
     // setters and getters
@@ -59,6 +57,7 @@ public:
 };
 
 int main() {
+    //srand to seed random
     cout << fixed << setprecision(2);
 
     //creating pointer to first chair object
